@@ -21,6 +21,8 @@
   - les 20 séries à la Une actuellement visibles via l'API https://www.themoviedb.org.
   - les 10 recommandations actuellement visibles via l'API https://www.themoviedb.org.
 
+* La possibilité de rechercher un nom de série spécifique via la bar de recherche. Les informations du panel se mettent à jour au clic sur un élément issu du menu de suggestion.
+
 # Solution du cours :
 
 `Ceci est le rendu visuel de la consigne devant être réalisée initialement.`
