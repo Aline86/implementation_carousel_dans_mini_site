@@ -5,7 +5,7 @@
 # Ma solution :
 
 `Ceci est le rendu visuel de mon implémentation de l'idée de site de la video de cours`
-`Ceci m'a permi de tester le carousel typescript que j'ai dev dans https://github.com/Aline86/composant_carousel_react.`
+`Ceci m'a permis de tester le carousel typescript que j'ai dev dans https://github.com/Aline86/composant_carousel_react.`
 
 ![capture du rendu visuel](rendu_visuel.png)
 
