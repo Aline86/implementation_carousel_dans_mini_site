@@ -81,7 +81,7 @@ function App() {
     <div onClick={resetSuggestions} className={s.main_container} 
       style={{ background: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.5)), url("${BACKDROP_BASE_URL}${currentTVShow.backdrop_path}") no-repeat center center / cover`, minHeight: "100Vh", height: "100%"}}>
       <div className={s.header}>
-        <div className="row">
+        <div className="flex">
           <div className="col-4">
             <Logo title="WatoWatch" subtitle="Find a show you may like" />
           </div>
