@@ -47,6 +47,7 @@ body {
     line-height: 50px;
     text-indent: 15px;
     font-size: larger;
+    margin-top: 30px;
 }
 .search-bar:focus {
     border: 3px solid white!important;
