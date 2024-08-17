@@ -31,5 +31,8 @@
        
         margin: 0 auto;
     }
-    
+    .header {
+        display: flex;
+        flex-direction: column;
+    }
 }

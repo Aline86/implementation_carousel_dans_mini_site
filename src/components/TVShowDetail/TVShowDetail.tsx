@@ -7,7 +7,8 @@ interface TVShowData {
     tvShow: any
 }
 export function TVShowDetail({tvShow}: TVShowData) {
-    const rating = tvShow.vote_average / 2
+    const average: string = tvShow.vote_average;
+    const rating: number = Number(parseInt(average) * 0.5)
     useEffect(() => {
     }, [rating])
     return (

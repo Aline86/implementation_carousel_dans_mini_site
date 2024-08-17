@@ -83,7 +83,7 @@ function App() {
           <div className="col-4">
             <Logo title="WatoWatch" subtitle="Find a show you may like" />
           </div>
-          <div className="col-md-12 col-lg-4" >
+          <div className="col-lg-4" >
             <input style={{ width: "100%"}} type="text" onChange={fetchTVShow} className="search-bar" placeholder="Search a TV show" />
             <div className="suggestions-container">
               <div className="suggestions" ref={suggestionRef?.current}>
