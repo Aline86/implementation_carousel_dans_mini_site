@@ -17,7 +17,6 @@ interface CardData {
 function Card({data, cardRef, transitionFinished, trasnsType, transX, width, gap, height, updateCurrentTvShow, currentTvShow
 } : CardData) { 
     const result = window.matchMedia("(max-width: 700px)");
-    console.log(result)
     useEffect(() => {
     
     }, [currentTvShow])

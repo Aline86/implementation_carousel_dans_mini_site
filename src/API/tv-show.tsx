@@ -9,7 +9,6 @@ export default class TVShowAPI {
     }
 
     async fetchRecommendation (tvShowId: number) {
-        console.log(tvShowId)
         const response = await axios.get(`${BASE_URL}/tv/${tvShowId}/recommendations${API_KEY_PARAM}`);
       
         return response.data.results;

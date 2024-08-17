@@ -31,12 +31,10 @@ function App() {
   }
 
   async function fetchTVShow(e: any) {
-    console.log(e.target.value);
     const api = new TVShowAPI();
     if(e.target.value.length >= 3) {
       let shows = await api.fetchTVShow(e.target.value);
       let arrayShows = Object.values(shows).map((value) => value);
-      console.log("arrayShows", arrayShows)
       if(shows !== undefined && arrayShows.length > 0) {
         
         setSuggestions(shows);
