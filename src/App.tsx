@@ -41,9 +41,7 @@ function App() {
         
         setSuggestions(shows);
       }
-     
     }
-    
   }
 
   function updateCurrentTvShow(tvshow: any) {
@@ -72,13 +70,12 @@ function App() {
 
   useEffect(() => {
     if(currentTVShow.id !== undefined) {
-      console.log("currentTVShow", currentTVShow)
       fetchRecommendations(currentTVShow.id);
     }
     
   }, [currentTVShow])
   useEffect(() => {
-    console.log("suggestions", suggestions)
+
   }, [suggestions])
   return (
     <div onClick={resetSuggestions} className={s.main_container} 
