@@ -4,10 +4,6 @@
     padding-left:10px;
 }
 
-
-.overview:hover {
-    overflow-y: scroll;
-}
 .overview  {
     font-family: Roboto;
     font-weight: 400;
