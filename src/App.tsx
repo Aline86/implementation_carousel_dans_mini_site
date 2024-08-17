@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import './global.css'
 import s from './style.module.css'
 import TVShowAPI from './API/tv-show';
-import { BASE_URL, API_KEY_PARAM, BACKDROP_BASE_URL, BACKDROP_BASE_SMALL_URL } from './config.tsx'
+import { BACKDROP_BASE_URL, BACKDROP_BASE_SMALL_URL } from './config.tsx'
 import { TVShowDetail } from './components/TVShowDetail/TVShowDetail.tsx';
 import { Logo } from './components/Logo/Logo';
 import  Carousel  from './components/Carousel/Carousel.tsx';

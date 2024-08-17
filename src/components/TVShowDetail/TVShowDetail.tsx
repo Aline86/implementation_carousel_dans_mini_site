@@ -1,5 +1,5 @@
 import s from './style.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { FiveStarRating } from '../FiveStarRating/FiveStarRating';
 
 

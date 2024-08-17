@@ -1,5 +1,5 @@
 import { BACKDROP_BASE_SMALL_URL } from './../../config.tsx'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 interface CardData {
     data: any,
     cardRef: any,

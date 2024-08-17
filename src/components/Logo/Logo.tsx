@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import s from './style.module.css';
 import  image  from "../../assets/img/logo.png";
 
