@@ -15,7 +15,7 @@ export function Logo({title, subtitle}: LogoData) {
     }, [])
     return (
         <>
-            <div className={s.container}>
+            <div className={s.container_class}>
             <img src={image} alt="" />
             <span className={s.title}>{title}</span>
             </div>
