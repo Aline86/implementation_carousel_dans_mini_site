@@ -7,7 +7,7 @@ interface TVShowData {
     tvShow: any
 }
 export function TVShowDetail({tvShow}: TVShowData) {
-    const rating = tvShow.vote_average
+    const rating = tvShow.vote_average / 2
     useEffect(() => {
     }, [rating])
     return (

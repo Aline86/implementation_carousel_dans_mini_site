@@ -57,4 +57,7 @@ body {
         line-height: 30px;
         margin-top: 10px;
     }
+    h1, h3 {
+        margin-left: 15px;
+    }
 }

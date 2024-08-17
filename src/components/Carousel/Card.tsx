@@ -16,17 +16,18 @@ interface CardData {
 
 function Card({data, cardRef, transitionFinished, trasnsType, transX, width, gap, height, updateCurrentTvShow, currentTvShow
 } : CardData) { 
-
+    const result = window.matchMedia("(max-width: 700px)");
+    console.log(result)
     useEffect(() => {
     
     }, [currentTvShow])
     if(transitionFinished){
-        return ( <div className="card-app" onClick={() => {updateCurrentTvShow(data)}} style={{ background: `linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url("${BACKDROP_BASE_SMALL_URL}${data.backdrop_path}") no-repeat center / cover`, width:`${width}px`, height:`${height}px`, marginRight:`${gap}px`, transition: `${trasnsType}`, transform: `translateX(${transX}px)`}} ref={cardRef}>
+        return ( <div className="card-app" onClick={() => {updateCurrentTvShow(data)}} style={{ background: `linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url("${BACKDROP_BASE_SMALL_URL}${data.backdrop_path}") no-repeat center / cover`, width:`${!result.matches ?  `${width}px`: `calc(100vw - 40px)`}`, height:`${height}px`, marginRight:`${result.matches ? gap : gap * 0.5}px`, transition: `${trasnsType}`, marginLeft:`${result.matches &&  gap * 0.5}px`, transform: `translateX(${transX}px)`}} ref={cardRef}>
             <span className='title'>{data.name}</span>
         </div> )
     }
     else {
-        return ( <div onClick={() => { updateCurrentTvShow(data); }}  className="card-app" ref={cardRef} style={{ background: `linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url("${BACKDROP_BASE_SMALL_URL}${data.backdrop_path}") no-repeat center / cover`, width:`${width}px`, height:`${height}px`, marginRight:`${gap}px`}}>
+        return ( <div onClick={() => { updateCurrentTvShow(data); }}  className="card-app" ref={cardRef} style={{ background: `linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url("${BACKDROP_BASE_SMALL_URL}${data.backdrop_path}") no-repeat center / cover`, width:`${!result.matches ? `${width}px`: `calc(100vw - 40px)`}`, height:`${height}px`, marginRight:`${result.matches ? gap :  gap * 0.5}px`, marginLeft:`${result.matches &&  gap * 0.5}px`}}>
             <span className='title'>{data.name}</span>
         </div> )
     }

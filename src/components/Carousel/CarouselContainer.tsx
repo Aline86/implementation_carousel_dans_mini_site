@@ -22,7 +22,8 @@ function CarouselContainer({currentTvShow, colors,  transitionFinished, cardWidt
   const [trigger, setTrigger] = useState(0);
   const [move, setMove] = useState(0);
   const [isLeft, setIsLeft] = useState(true);
-
+  const result = window.matchMedia("(max-width: 700px)");
+  
   function updateTransitionLeft() {
     const popItem = colors.shift();
     if(popItem !== undefined) {
@@ -71,9 +72,9 @@ function CarouselContainer({currentTvShow, colors,  transitionFinished, cardWidt
 
   return (
     <div className="body" onTransitionEnd={() => updateTransitionState(false)} style={{maxWidth: `100%`, width:`${cardNumber * width }px`}} >
-      {transitionFinished ? (<button className="left" onClick={() => moveLeft()} style={{marginRight: `${gap}px`, pointerEvents: 'none', color: 'lightgray'}}  >&#x27E8;</button>) : (<button className="left" onClick={() => moveLeft()} style={{marginRight: `${gap}px`}}><span>&#x27E8;</span></button>) }
+      {transitionFinished ? (<button className="left" onClick={() => moveLeft()} style={{marginRight: `${!result.matches ? gap : 0 }px`, pointerEvents: 'none', color: 'lightgray'}}  >&#x27E8;</button>) : (<button className="left" onClick={() => moveLeft()} style={{marginRight: `${gap}px`}}><span>&#x27E8;</span></button>) }
       <div className="container_class" style={{minWidth:`${cardWidth + gap + 15} px`, margin: `${gap}px auto`, height: `${height + 2}px`, width: `${width * (cardNumber)}px`, maxWidth: "100%"}} >
-          <div className="card-container" style={{minWidth:`${cardWidth + gap + 15} px`, transform: `translateX(-${(cardWidth + gap - 15)}px)`}}>
+          <div className="card-container" style={{minWidth:`${cardWidth + gap + 15} px`, transform: `translateX(-${!result.matches ? cardWidth + gap - 15 : cardWidth })}px)`}}>
             <div className="cards">
               
               {
@@ -90,7 +91,7 @@ function CarouselContainer({currentTvShow, colors,  transitionFinished, cardWidt
             </div>
           </div>
       </div>
-          {transitionFinished ? (<button className="right" onClick={() => moveRight()} style={{marginLeft: `${gap}px`, pointerEvents: 'none', color: 'lightgray'}}  >&#x27E9;</button>) : (<button className="right" onClick={() => moveRight()} style={{marginLeft: `${gap}px`}}  ><span>&#x27E9;</span></button>) }   
+          {transitionFinished ? (<button className="right" onClick={() => moveRight()} style={{marginLeft: `${!result.matches ? gap : 0 }px`, pointerEvents: 'none', color: 'lightgray'}}  >&#x27E9;</button>) : (<button className="right" onClick={() => moveRight()} style={{marginLeft: `${gap}px`}} ><span>&#x27E9;</span></button>) }   
     </div>
     
   )

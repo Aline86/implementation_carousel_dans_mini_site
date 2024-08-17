@@ -9,7 +9,7 @@ export function FiveStarRating({rating}: FiveStarRatingData) {
     const [htmlOutput, sethtmlOutput] = useState([])
 
     const returnStars = () => {
-        const deb_full: string = String(Math.floor(rating / 2));
+        const deb_full: string = String(Math.floor(rating));
         const full = parseFloat(deb_full);
         const remainder = rating - full;
   
