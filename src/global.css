@@ -51,6 +51,7 @@ body {
     text-indent: 15px;
     font-size: larger;
     margin-top: 30px;
+    width: 40%;
 }
 .search-bar:focus {
     border: 3px solid white!important;
