@@ -1,3 +1,5 @@
+
+
 import { useEffect, useState, useRef } from 'react'
 import './global.css'
 import s from './style.module.css'
@@ -12,6 +14,7 @@ function App() {
   const  [currentTVShow, setCurrentTVShow] = useState<any>({});
   const  [TVShows, setTVShows] = useState<any>({});
   const  [recommendation, setRecommendation] = useState<any>({});
+  const  [trigger, setTrigger] = useState(false);
   const  [suggestions, setSuggestions] = useState<any>([])
   const suggestionRef = useRef();
 
@@ -43,14 +46,15 @@ function App() {
   }
 
   function updateCurrentTvShow(tvshow: any) {
+    setTrigger(!trigger);
     setCurrentTVShow(tvshow);
     setRecommendation(tvshow.id)
   }
-  
+
   async function fetchRecommendations(tvShowId: number) {
     const api = new TVShowAPI();
     const recommendation = await api.fetchRecommendation(tvShowId);
-    if(recommendation.length > 0) {
+    if(recommendation !== undefined && recommendation.length > 0) {
       setRecommendation(recommendation.slice(0, 10));
     }
   }
@@ -64,14 +68,17 @@ function App() {
 
   useEffect(() => {
     fetchPopulars();
+   
   }, [])
 
   useEffect(() => {
+    
     if(currentTVShow.id !== undefined) {
       fetchRecommendations(currentTVShow.id);
     }
-    
-  }, [currentTVShow])
+  }, [currentTVShow, trigger])
+
+ 
   useEffect(() => {
 
   }, [suggestions])
@@ -91,7 +98,7 @@ function App() {
                   suggestions.length > 0 && (
                     suggestions.map((value: any, index: number) => {
                       return (
-                        <div key={index} className="suggestion-item" onClick={() => updateCurrentTvShow(value)}>
+                        <div key={index} className="suggestion-item" onClick={() => updateCurrentTvShow(value) }>
                           <img src={`${BACKDROP_BASE_SMALL_URL}${value.backdrop_path}`} alt="" />
                           {value.name}
                         </div>

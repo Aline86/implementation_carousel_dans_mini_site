@@ -43,14 +43,14 @@ function CarouselContainer({currentTvShow, colors,  transitionFinished, cardWidt
   }
  
   function moveLeft() {
-    setMove(-cardWidth - gap + 15);
+    setMove(-cardWidth - gap / 2);
     setIsLeft(true)
     setTrigger(trigger + 1);
     updateTransitionState(true)
   }
 
   function moveRight() {
-    setMove(cardWidth + gap - 15);
+    setMove(cardWidth + gap / 2);
     setIsLeft(false)
     setTrigger(trigger + 1);
     updateTransitionState(true)
@@ -74,19 +74,42 @@ function CarouselContainer({currentTvShow, colors,  transitionFinished, cardWidt
     <div className="body" onTransitionEnd={() => updateTransitionState(false)}>
       {transitionFinished ? (<button className="left" onClick={() => moveLeft()} style={{marginRight: `${!result.matches ? gap : 0 }px`, pointerEvents: 'none', color: 'lightgray'}}  >&#x27E8;</button>) : (<button className="left" onClick={() => moveLeft()} style={{marginRight: `${gap}px`}}><span>&#x27E8;</span></button>) }
       <div className="container_class" style={{minWidth:`${cardWidth + gap } px`, margin: `${gap}px auto`, height: `${height + 2}px`, width: `${width * (cardNumber)}px`, maxWidth: "100%"}} >
-          <div className="card-container" style={{ minWidth:`${cardWidth + gap - 15 }px`, transform: `translateX(-${ cardWidth + gap - 15 }px)`}}>
+          <div className="card-container" style={{ minWidth:`${cardWidth + gap / 2}px`, transform: `translateX(-${ cardWidth + gap / 2 }px)`}}>
             <div className="cards">
               
               {
                 colors.map((value, index) => {
                   return (
-                    <Card  currentTvShow={currentTvShow} updateCurrentTvShow={updateCurrentTvShow} key={index} data={value} cardRef={cardRef} transitionFinished={transitionFinished} trasnsType={"transform 0.3s ease-in"} transX={move} width={width} gap={gap} height={height} />
+                    <Card  
+                      currentTvShow={currentTvShow} 
+                      updateCurrentTvShow={updateCurrentTvShow} 
+                      key={index} data={value} 
+                      cardRef={cardRef} 
+                      transitionFinished={transitionFinished} 
+                      trasnsType={"transform 0.3s ease-in"} 
+                      transX={move} 
+                      width={width} 
+                      gap={gap}
+                      height={height} 
+                      />
                   )
                 })
                 
               }
               {
-                <Card currentTvShow={currentTvShow} updateCurrentTvShow={updateCurrentTvShow} key={-1} data={colors[0]} cardRef={cardRef} transitionFinished={transitionFinished} trasnsType={"transform 0.3s ease-in"} transX={move} width={width} gap={gap} height={height} />
+                <Card 
+                  currentTvShow={currentTvShow} 
+                  updateCurrentTvShow={updateCurrentTvShow} 
+                  key={-1} 
+                  data={colors[0]} 
+                  cardRef={cardRef} 
+                  transitionFinished={transitionFinished} 
+                  trasnsType={"transform 0.3s ease-in"} 
+                  transX={move} 
+                  width={width} 
+                  gap={gap} 
+                  height={height} 
+                />
               }
             </div>
           </div>

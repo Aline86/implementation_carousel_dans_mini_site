@@ -38,14 +38,17 @@ export function FiveStarRating({rating}: FiveStarRatingData) {
         returnStars()
     }, [rating])
     return (
-        <div className={s.rating_container}>
-            {htmlOutput.length === 5 && (
-                htmlOutput.map((value, index) => {
-                    return (
-                        <div key={index} className={s.rating}>{value}</div>
-                    )
-                })
-            )}
-        </div>
+        <>
+            <div className={s.stars}>
+                {htmlOutput.length === 5 && (
+                    htmlOutput.map((value, index) => {
+                        return (
+                            <div key={index} className={s.rating}>{value}</div>
+                        )
+                    })
+                )}
+            </div>
+        </>
+        
     )
 }
