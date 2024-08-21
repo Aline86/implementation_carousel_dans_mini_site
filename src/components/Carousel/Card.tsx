@@ -14,7 +14,7 @@ interface CardData {
 
 } 
 
-function Card({data, cardRef, transitionFinished, trasnsType, transX, width, gap, height, updateCurrentTvShow, currentTvShow
+function Card({data, cardRef, transitionFinished, trasnsType, transX, width, gap, height, updateCurrentTvShow
 } : CardData) { 
     const result = window.matchMedia("(max-width: 700px)");
    
