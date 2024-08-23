@@ -25,18 +25,19 @@ function CarouselContainer({currentTvShow, colors,  transitionFinished, cardWidt
   const result = window.matchMedia("(max-width: 700px)");
   
   function updateTransitionLeft() {
-    const popItem = colors.shift();
+    const popItem = colors.pop();
     if(popItem !== undefined) {
-      colors.push(popItem)
+      colors.unshift(popItem)
+   
       updateColors(colors);
       updateTransitionState(true);
     }   
   }
 
   function updateTransitionRight() {
-    const popItem = colors.pop();
-    if(popItem !== undefined) {
-      colors.unshift(popItem)
+    const shiftItem = colors.shift();
+    if(shiftItem !== undefined) {
+      colors.push(shiftItem)
       updateColors(colors);
       updateTransitionState(true);
     }
@@ -61,7 +62,7 @@ function CarouselContainer({currentTvShow, colors,  transitionFinished, cardWidt
   }, []);
 
   useEffect(() => {
-    if(isLeft) {
+    if(!isLeft) {
       updateTransitionLeft()
     }
     else
@@ -72,7 +73,7 @@ function CarouselContainer({currentTvShow, colors,  transitionFinished, cardWidt
 
   return (
     <div className="body" onTransitionEnd={() => updateTransitionState(false)}>
-      {transitionFinished ? (<button className="left" onClick={() => moveLeft()} style={{marginRight: `${!result.matches ? gap : 0 }px`, pointerEvents: 'none', color: 'lightgray'}}  >&#x27E8;</button>) : (<button className="left" onClick={() => moveLeft()} style={{marginRight: `${gap}px`}}><span>&#x27E8;</span></button>) }
+      {transitionFinished ? (<button className="left" style={{marginRight: `${!result.matches ? gap : 0 }px`, pointerEvents: 'none', color: 'lightgray'}}  >&#x27E8;</button>) : (<button className="left" onClick={() => moveRight()} style={{marginRight: `${gap}px`}}><span>&#x27E8;</span></button>) }
       <div className="container_class" style={{minWidth:`${cardWidth + gap } px`, margin: `${gap}px auto`, height: `${height + 2}px`, width: `${width * (cardNumber)}px`, maxWidth: "100%"}} >
           <div className="card-container" style={{ minWidth:`${cardWidth + gap / 2}px`, transform: `translateX(-${ cardWidth + gap / 2 }px)`}}>
             <div className="cards">
@@ -114,7 +115,7 @@ function CarouselContainer({currentTvShow, colors,  transitionFinished, cardWidt
             </div>
           </div>
       </div>
-          {transitionFinished ? (<button className="right" onClick={() => moveRight()} style={{marginLeft: `${!result.matches ? gap : 0 }px`, pointerEvents: 'none', color: 'lightgray'}}  >&#x27E9;</button>) : (<button className="right" onClick={() => moveRight()} style={{marginLeft: `${gap}px`}} ><span>&#x27E9;</span></button>) }   
+          {transitionFinished ? (<button className="right" style={{marginLeft: `${!result.matches ? gap : 0 }px`, pointerEvents: 'none', color: 'lightgray'}}  >&#x27E9;</button>) : (<button className="right" onClick={() => moveLeft()} style={{marginLeft: `${gap}px`}} ><span>&#x27E9;</span></button>) }   
     </div>
     
   )
